@@ -1,0 +1,39 @@
+{
+  "orgs": [
+    {
+      "id": 1,
+      "name": "ГБОУ Номер 1",
+      "markone": 2,
+      "marktwo": 4,
+      "markthree": 1
+    },
+    {
+      "id": 2,
+      "name": "ГБОУ Номер 2",
+      "markone": 5,
+      "marktwo": 3,
+      "markthree": 2
+    },
+    {
+      "id": 3,
+      "name": "ГБОУ Номер 3",
+      "markone": 4,
+      "marktwo": 4,
+      "markthree": 4
+    },
+    {
+      "id": 4,
+      "name": "ГБОУ Номер 4",
+      "markone": 5,
+      "marktwo": 4,
+      "markthree": 5
+    },
+    {
+      "id": 5,
+      "name": "ГБОУ Номер 1",
+      "markone": 3,
+      "marktwo": 1,
+      "markthree": 4
+    }
+  ]
+}

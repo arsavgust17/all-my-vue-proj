@@ -1,0 +1,10 @@
+{
+  "files": [
+    "src/UI/index.d.ts",
+    "declare/**"
+  ],
+
+  "compilerOptions": {
+    "experimentalDecorators": true
+  }
+}

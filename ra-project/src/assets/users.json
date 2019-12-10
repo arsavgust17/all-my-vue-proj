@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fio": "Денис Топорков Иванов",
+      "profession": "Терапевт",
+      "markone": 4,
+      "marktwo": 3,
+      "markthree": 4
+    },
+    {
+      "id": 2,
+      "fio": "Алексей Тиранин Васильевич",
+      "profession": "Невролог",
+      "markone": 1,
+      "marktwo": 2,
+      "markthree": 1
+    },
+    {
+      "id": 3,
+      "fio": "Вениамин Волин Сергеевич",
+      "profession": "Хирург",
+      "markone": 5,
+      "marktwo": 3,
+      "markthree": 1
+    },
+    {
+      "id": 4,
+      "fio": "Платон Государев Максимович",
+      "profession": "Психолог",
+      "markone": 3,
+      "marktwo": 5,
+      "markthree": 2
+    },
+    {
+      "id": 5,
+      "fio": "Анна Гиль Алексеевна",
+      "profession": "Окулист",
+      "markone": 3,
+      "marktwo": 5,
+      "markthree": 5
+    },
+    {
+      "id": 6,
+      "fio": "Екатерина Бондаренко Александровна",
+      "profession": "Дерматовенеролог",
+      "markone": 5,
+      "marktwo": 5,
+      "markthree": 5
+    },
+    {
+      "id": 7,
+      "fio": "Алиса Топоркова Ивановова",
+      "profession": "Мамолог",
+      "markone": 4,
+      "marktwo": 4,
+      "markthree": 4
+    },
+    {
+      "id": 8,
+      "fio": "Дарья Иннуендовна Георгиевна",
+      "profession": "Гинеколог",
+      "markone": 4,
+      "marktwo": 4,
+      "markthree": 4
+    },
+    {
+      "id": 9,
+      "fio": "Александр Гельевич Дугин",
+      "profession": "Психиатр",
+      "markone": 4,
+      "marktwo": 4,
+      "markthree": 4
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  tags:
+    - shell
+  script:
+    - npm i
+    - npm run build
+  artifacts:
+    expire_in: 30 days
+    paths:
+      - dist
+
+dev:
+  stage: deploy
+  tags:
+    - tech
+  script:
+    - rm -fR /opt/surtapp/js/vue/vue-server/build
+    - mv dist /opt/surtapp/js/vue/vue-server/build
+  environment:
+    name: tech
+  when: manual
+  only:
+    - dev
+
+production:
+  stage: deploy
+  tags:
+    - prod
+  script:
+    - rm -fR /opt/ugd/js/vue/vue-server/build
+    - mv dist /opt/ugd/js/vue/vue-server/build
+  environment:
+    name: production
+  when: manual
+  only:
+    - master

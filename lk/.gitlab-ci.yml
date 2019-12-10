@@ -1,0 +1,70 @@
+##
+## Настройки CI/CD для GitLab.
+##
+## @template-link https://gitlab.webbankir.team/backend/project-templates/
+## @template-built 26.06.19 12:48:15
+##
+
+include:
+  -
+    project: public-sources/gitlab-default-file
+    file: service/base.yml
+
+pre:build:
+  stage: pre
+  image: node:11-alpine
+  tags:
+    - gitlab-runner-docker
+  script:
+    - apk --no-cache add --virtual native-deps g++ gcc libgcc libstdc++ linux-headers make python
+    - npm install --quiet --silent
+    - npm run build
+    - apk del native-deps
+  only:
+    - alpha
+    - develop
+    - tags
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - dist/
+      - node_modules/
+
+build:tag:
+  stage: build
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - dist/
+      - node_modules/
+
+build:alpha:
+  stage: build
+  tags:
+    - gitlab-runner-docker
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build --no-cache -f $DOCKER_FILE -t $IMAGE:alpha .
+    - docker push $IMAGE:alpha
+  only:
+    - alpha
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - dist/
+      - node_modules/
+
+deploy:alpha:
+  stage: deploy
+  tags:
+    - gitlab-runner-docker
+  before_script:
+    - nomad stop -address=http://nomad-server.dev.wb:4646 -purge -yes `grep job nomad/alpha.nomad |head -1 |awk {'print $2'}|tr -d '"'` || true
+  script:
+    - levant deploy -var-file nomad/vars.yml -ignore-no-changes -address=http://nomad-server.dev.wb:4646 nomad/alpha.nomad
+  environment:
+    name: Dev
+    url: https://alpha.webbankir.com
+  only:
+    - alpha

@@ -1,0 +1,56 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  tags:
+    - docker
+  image: node:latest
+  script:
+    - npm install --progress=false
+    - npm run build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist
+
+staging:
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - rm -rf /web/scan-properties/frontend/dev/*
+    - cp -r dist/* /web/scan-properties/frontend/dev/
+  environment:
+    name: dev
+    url: https://dev.scan.properties/
+  only:
+    - dev
+
+preproduction:
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - rm -rf /web/scan-properties/frontend/preprod/*
+    - cp -r dist/* /web/scan-properties/frontend//preprod/
+  environment:
+    name: preproduction
+    url: https://preprod.scan.properties/
+  when: manual
+  only:
+    - preprod
+
+production:
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - cp -r /web/scan-properties/frontend/preproduction/* /web/scan-properties/frontend/production/
+  environment:
+    name: production
+    url: https://scan.properties/
+  when: manual
+  only:
+    - master

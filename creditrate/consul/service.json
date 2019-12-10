@@ -1,0 +1,7 @@
+{
+  "service": {
+    "Name": "<hostname>",
+    "Address": "<ip_address>",
+    "Port": 80
+  }
+}
