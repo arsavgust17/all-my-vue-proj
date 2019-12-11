@@ -19,7 +19,6 @@
     "axios-retry": "^3.0.2",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
-    "body-scroll-lock": "^2.6.4",
     "card-validator": "^6.0.0",
     "credit-card-type": "^6.2.0",
     "dayjs": "^1.7.4",

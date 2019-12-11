@@ -1,0 +1,195 @@
+.myloan {
+	&__wrapper {
+		position: relative;
+		display: flex;
+		align-items: center;
+		margin-bottom: 50px;
+		flex-wrap: wrap;
+		@media #{$mobile} {
+			margin-bottom: 30px;
+			justify-content: center;
+		}
+
+		& > div.summary-desktop {
+			display: flex;
+			width: 100%;
+			border-bottom: 1px solid #e9eff4;
+			align-items: center;
+			padding-bottom: 20px;
+
+
+
+			& div.status {
+				width: 100%;
+				display: flex;
+				align-items: flex-start;
+				&  >  h1 {
+					flex-grow: 1;
+				}
+
+				& .loanStatus__wrapper {
+					margin: 0;
+				}
+
+				& .links {
+					display: flex;
+					& .documents {
+						cursor: pointer;
+						margin-left: 40px;
+						color: $blueColor;
+						font-size: 15px;
+						font-weight: 500;
+						font-style: normal;
+						font-stretch: normal;
+						line-height: 1.33;
+						letter-spacing: normal;
+						display: flex;
+						align-items: center;
+
+						& > svg {
+							margin-right: 12px;
+						}
+					}
+				}
+			}
+		}
+
+		& > div.details-desktop {
+			display: flex;
+			align-items: flex-start;
+			margin-top: 30px;
+
+			.loan-debt {
+				text-align: left;
+				margin-right: 40px;
+				& > h3 {
+					@include font(11px, normal, 1.82);
+					text-transform: uppercase;
+				}
+
+				& .debt-sum {
+					@include font(50px, nomral);
+				}
+			}
+
+			& .loan-debt-details {
+				width: 100%;
+				max-width: 250px;
+				margin: 0 auto;
+				//z-index:1;
+				//position: absolute;
+			}
+		}
+
+		& > div.summary-mobile {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+
+		}
+
+		&  h1 {
+			color: $black;
+			margin-left: 10px;
+			@include font(25px, 500, 1.2);
+			text-align: left;
+			@media #{$mobile} {
+				text-align: center;
+			}
+			margin-bottom: 20px;
+		}
+
+		& > .mobile-details {
+			width: 100%;
+			margin-bottom: 90px;
+			& .loan-debt {
+				&.mobile {
+					width: 100%;
+				}
+				text-align: center;
+				& > h3 {
+					@include font(11px, normal, 1.82);
+					text-transform: uppercase;
+				}
+
+				& .debt-sum {
+					@include font(50px, nomral);
+				}
+			}
+		}
+
+		.details_wrapper_relative {
+			position: relative;
+			& .loan-debt-details {
+				border-radius: 10px;
+				box-shadow: 0 1px 1px 0 #b7c6d0;
+				background-color: #ffffff;
+				padding: 10px 20px;
+				min-height: 70px;
+				min-width: 250px;
+				margin: auto;
+				position: absolute;
+				z-index: 0;
+				&.mobile {
+					position: absolute;
+					width: 100%;
+					z-index:2;
+
+				}
+
+
+
+				& .details__wrapper {
+					& .absolute {
+						width: 100%;
+						background: #fff;
+						z-index: 3;
+
+						& .title {
+							@include font(11px, normal, 1.82);
+							text-transform: uppercase;
+							margin-bottom: 5px;
+							position: relative;
+
+							& > svg {
+								@include position(absolute, (top: 0, right: 0));
+								&:hover {
+									cursor: pointer;
+								}
+							}
+						}
+
+						& .details {
+
+							width: 100%;
+							left: -20px;
+							&-row {
+								color: $asphalt;
+								@include font(13px);
+								padding-bottom: 5px;
+								& > strong {
+									color: $black;
+								}
+							}
+						}
+
+						& .expand {
+							color: $blueColor;
+							border-top: 1px solid $border;
+							cursor: pointer;
+							@include font(13px);
+							& > svg {
+								position: relative;
+								top: 8px;
+								margin-left: 20px;
+							}
+						}
+					}
+
+				}
+			}
+		}
+
+	}
+}

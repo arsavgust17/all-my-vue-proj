@@ -1,0 +1,6 @@
+.header {
+	&__wrapper {
+		@include size(null, 120px);
+		z-index: 1000
+	}
+}

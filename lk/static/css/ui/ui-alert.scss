@@ -1,0 +1,74 @@
+@import "../utilits/main";
+
+@mixin ui-alert-colors($ui-alert-background-color, $ui-alert-border-color) {
+	border-left: 5px solid $ui-alert-border-color;
+	border-top: 1px solid $ui-alert-border-color;
+	border-bottom: 1px solid $ui-alert-border-color;
+	border-right: 1px solid $ui-alert-border-color;
+	background-color: $ui-alert-background-color;
+}
+
+.ui-alert {
+	@include size(100%);
+	
+	&__wrapper {
+		border-radius: 5px;
+	}
+	
+	&__info {
+		@include ui-alert-colors(#e9f0fa, $alertInfo);
+	}
+	
+	&__success {
+		@include ui-alert-colors(#f0f9eb, $alertSuccess);
+	}
+	
+	&__error {
+		@include ui-alert-colors(#fef0f0, $alertError);
+	}
+	
+	&__warning {
+		@include ui-alert-colors(#faf5e5, $alertWarning);
+	}
+	
+	.ui-alert__header {
+		@include position(relative);
+		@include size(100%);
+		@include flex(inline-flex, row, wrap);
+		padding: 15px;
+		cursor: pointer;
+		
+		&-icon {
+			@include position(absolute, $c: (top: 2px, right: 0px));
+			transform: translate(0, 0);
+			@include flex(flex, row, nowrap);
+			align-items: center;
+			justify-content: center;
+			@include size(45px, 45px);
+		}
+		
+		&-title {
+			@include size(calc(100% - 50px));
+			padding-left: 15px;
+			@include font(15px, 500, 1.33, .5px);
+			color: $black;
+		}
+	}
+	
+	&__content {
+		padding: 0 15px 25px 50px;
+	}
+	
+	&__unclosed {
+		.ui-alert__header {
+			cursor: default;
+		}
+		.ui-alert__header-title {
+			@include size(calc(100% - 20px));
+		}
+	}
+}
+
+
+
+

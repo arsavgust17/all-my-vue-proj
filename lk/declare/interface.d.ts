@@ -38,7 +38,6 @@ interface INTERFACE {
      */
     cashback: number,
     displayConfirmEmailWindow: boolean,
-    hiddenMenuItems: [string],
 }
 
 declare module 'vue/types/vue' {
@@ -46,7 +45,7 @@ declare module 'vue/types/vue' {
         $store: {
             getters: {
                 $interface: INTERFACE
-            },
+            }
         },
 
         AJAX_LOADING(state: boolean | {
@@ -55,7 +54,6 @@ declare module 'vue/types/vue' {
             name: 'rootFixed' | string,
             isShow: boolean
         }): void,
-        BUTTON_LOADING(state: boolean): void,
-
+        BUTTON_LOADING(state: boolean): void
     }
 }

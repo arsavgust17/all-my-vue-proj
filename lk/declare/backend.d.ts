@@ -21,10 +21,6 @@ interface iBackend {
             socialUnlink(data: Object): Promise<any>,
             edit(data: Object): Promise<any>,
             passportIssuedBy(payload: string): Promise<any>,
-            appealResponses(pageNumber: number, pageSize: number, isRead: number): Promise<any>,
-            sendEmail(id: string): Promise<any>,
-            downloadFile(id: string): Promise<any>,
-            setAppealRead(id: string): Promise<any>,
             password: {
                 change(payload: {password: string, oldPassword: string}): Promise<any>,
                 recovery(payload: {password: string, emailHash: string}): Promise<any>,
